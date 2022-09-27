@@ -1,0 +1,29 @@
+{
+  "name": "@tracycho/json-to-env",
+  "version": "0.1.0",
+  "description": "json to env",
+  "private": false,
+  "bin": {
+    "jte": "./bin/index.js"
+  },
+  "keywords": [
+    "node",
+    "env",
+    "json"
+  ],
+  "homepage": "https://github.com/tracy-cho/jte",
+  "bugs": {
+    "url": "https://github.com/tracy-cho/jte/issues",
+    "email": "ansible@star-light.space"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Cho Eunsol",
+    "email": "ansible@star-light.space",
+    "url": "https://star-light.space"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tracy-cho/jte.git"
+  }
+}
