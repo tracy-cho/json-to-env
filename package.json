@@ -1,6 +1,6 @@
 {
   "name": "@tracycho/json-to-env",
-  "version": "0.1.0",
+  "version": "0.1.1-hotfix",
   "description": "json to env",
   "private": false,
   "bin": {
@@ -11,9 +11,9 @@
     "env",
     "json"
   ],
-  "homepage": "https://github.com/tracy-cho/jte",
+  "homepage": "https://github.com/tracy-cho/json-to-env",
   "bugs": {
-    "url": "https://github.com/tracy-cho/jte/issues",
+    "url": "https://github.com/tracy-cho/json-to-env/issues",
     "email": "ansible@star-light.space"
   },
   "license": "MIT",
@@ -24,6 +24,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tracy-cho/jte.git"
+    "url": "https://github.com/tracy-cho/json-to-env.git"
   }
 }
