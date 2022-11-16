@@ -9,10 +9,25 @@ json파일은 반드시 아래와 같은 형식을 따라야 한다.
 ```json5
 {
   //공통으로 사용하는 변수
-  "common": {  
-    "apiVersion": "1.2.2"
+  "common": {
+    "generateSorucemap": false,
+    "version": {
+      "libs": {
+        "apis": "v1",
+        "components": "v1",
+        "utils": "v1"
+      },
+      "webs": {
+        "admin": "v1",
+        "backoffice": "v1",
+        "sample": "v1"
+      },
+      "widget": {
+        "injector": "v1",
+        "widget": "v1"
+      }
+    }
   },
-  //staging env
   "env": {
     "development": {
       "url": "<dev-url>"
