@@ -44,7 +44,6 @@ const rCheckKey = /^--/g;
     Object.keys(data).map(key => {
       const value = data[key];
       const _prefix = isReverse ? `${pre}_${caseChange(key)}` : `${caseChange(key)}${pre ? `_${pre}` : pre}`
-      console.log(_prefix);
       if (typeof value === 'object') {
         return recursive(value, _prefix)
       } else {
