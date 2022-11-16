@@ -45,12 +45,20 @@ $ jte
 ## 예시
 
 ```shell
-$ jte --importFile 'env.json' --prefix "REACT_APP_" --exportFile '.env'
+$ jte --importFile 'env.json' --prefix "REACT_APP" --exportFile '.env'
 ```
 ### 결과
 .env.development
 ```dotenv
-API_VERSION=1.2.2
 GENERATE_SORUCEMAP=false
+APIS_LIBS_VERSION=v1
+COMPONENTS_LIBS_VERSION=v1
+UTILS_LIBS_VERSION=v1
+ADMIN_WEBS_VERSION=v1
+BACKOFFICE_WEBS_VERSION=v1
+SAMPLE_WEBS_VERSION=v1
+INJECTOR_WIDGET_VERSION=v1
+WIDGET_WIDGET_VERSION=v1
 REACT_APP_URL=<dev-url>
+
 ```

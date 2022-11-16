@@ -5,17 +5,6 @@ const {argv} = require('node:process');
 
 const rCheckKey = /^--/g;
 
-function readJson(obj, prefix) {
-  return Object.keys(obj).reduce((accm, curr) => [...accm, `${[...curr].reduce((a, c) => {
-    const code = c.charCodeAt(0);
-    if (65 <= code && code <= 90) {
-      return a + "_" + c
-    } else {
-      return a + String.fromCharCode(code - 32);
-    }
-  }, prefix ?? "")}=${obj[curr]}`], [])
-}
-
 
 (async function () {
   const {
@@ -42,12 +31,39 @@ function readJson(obj, prefix) {
     }
   );
 
+  const caseChange = (text) => `${[...text].reduce((a, c) => {
+    const code = c.charCodeAt(0);
+    if (65 <= code && code <= 90) {
+      return a + "_" + c
+    } else {
+      return a + String.fromCharCode(code - 32);
+    }
+  }, "")}`;
+
+  const recursive = (data, pre = "", isReverse = false) => (
+    Object.keys(data).map(key => {
+      const value = data[key];
+      const _prefix = isReverse ? `${pre}_${caseChange(key)}` : `${caseChange(key)}${pre ? `_${pre}` : pre}`
+      console.log(_prefix);
+      if (typeof value === 'object') {
+        return recursive(value, _prefix)
+      } else {
+        return `${_prefix}=${value}`;
+      }
+    }).flat(1)
+  )
+
   fs.readFile(importFile, 'utf8', (error, jsonFile) => {
     if (error) return console.error(error);
     try {
       //@ts-ignore
       const {common, env} = JSON.parse(jsonFile);
-      fs.writeFile(`${exportFile}.${staging}`, [...readJson(common), ...readJson(env[staging], prefix)].join('\n'), () => {
+      const data = [...recursive(common), ...recursive(env[staging], prefix, true)].join('\n')
+      fs.writeFile(`${exportFile}.${staging}`, data, () => {
+        console.log("COMPLETE!🎉")
+        console.log("---")
+        console.log(data)
+        console.log("---")
       })
     } catch (e) {
       console.error(e);
